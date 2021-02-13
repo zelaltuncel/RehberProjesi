@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RehberApi", "RehberApi\RehberApi.csproj", "{AE5A8A8B-7838-4D3D-B22F-A45CCB67DBB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaporApi", "RaporApi\RaporApi.csproj", "{C359C7DA-E2F7-4B24-90CA-E26386BD6BDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE5A8A8B-7838-4D3D-B22F-A45CCB67DBB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE5A8A8B-7838-4D3D-B22F-A45CCB67DBB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE5A8A8B-7838-4D3D-B22F-A45CCB67DBB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE5A8A8B-7838-4D3D-B22F-A45CCB67DBB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C359C7DA-E2F7-4B24-90CA-E26386BD6BDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C359C7DA-E2F7-4B24-90CA-E26386BD6BDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C359C7DA-E2F7-4B24-90CA-E26386BD6BDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C359C7DA-E2F7-4B24-90CA-E26386BD6BDE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E16E4F64-6BF5-4B33-8826-2DBA91A85B00}
+	EndGlobalSection
+EndGlobal
