@@ -19,6 +19,13 @@ namespace RehberApi.Controllers
             _directoryContext = directoryContext;
         }
 
+
+        [Route("Person")]
+        public List<Person> GetPeople()
+        {
+            return _directoryContext.People.Where(q => q.IsDeleted == false).ToList();
+        }
+
         [Route("Person/Add")]
         [HttpPost]
 
@@ -45,6 +52,24 @@ namespace RehberApi.Controllers
             }
         }
 
-        
+
+        [Route("Person/Delete")]
+        [HttpPost]
+        public IActionResult Delete([FromForm] PersonDeleteVM personDelete)
+        {
+            Person person = _directoryContext.People.Find(personDelete.id);
+
+            if (person != null)
+            {
+                person.IsDeleted = true;
+                _directoryContext.SaveChanges();
+
+                return Ok(person);
+            }
+            else
+            {
+                return BadRequest("There is no any person has that id!");
+            }
+        }
     }
 }
