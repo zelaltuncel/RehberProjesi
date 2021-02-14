@@ -20,6 +20,8 @@ namespace RehberApi.Controllers
         }
 
 
+
+
         [Route("Contact/Add")]
         [HttpPost]
         public IActionResult Add([FromForm] ContactAddVM contactAdd)
@@ -47,6 +49,28 @@ namespace RehberApi.Controllers
                 return BadRequest(ModelState.Values);
             }
         }
+
+        [Route("Contact/Delete")]
+        [HttpPost]
+        public IActionResult Delete([FromForm] ContactDeleteVM contactDelete)
+
+        {
+            ContactInfo contactInfo = _directoryContext.ContactInfos.Find(contactDelete.id);
+
+            if (contactInfo != null)
+            {
+                contactInfo.IsDeleted = true;
+                _directoryContext.SaveChanges();
+
+                return Ok(contactInfo);
+            }
+
+            else
+            {
+                return BadRequest("There is no any contact information has that id!");
+            }
+        }
+       
 
 
 
