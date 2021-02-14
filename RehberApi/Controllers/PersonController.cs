@@ -35,6 +35,35 @@ namespace RehberApi.Controllers
                
         }
 
+        [Route("Person/Detail/{id}")]
+        [HttpGet]
+        public IActionResult GetDetail(int id)
+        {
+            Person person = _directoryContext.People.Find(id);
+
+            if (person != null)
+            {
+                PersonListVM persondetail = _directoryContext.People.Where(q => q.IsDeleted == false).Select(x => new PersonListVM()
+                {
+                    id = x.ID,
+                    name = x.Name,
+                    surName = x.SurName,
+                    company = x.Company,
+                    contacts = x.Contacts.Where(q => q.IsDeleted == false).ToList()
+                }).FirstOrDefault(q => q.id == id);
+
+                return Ok(persondetail);
+
+            }
+            else
+            {
+                return BadRequest("There is no any person has that id!");
+
+            }
+
+
+        }
+
 
         [Route("Person/Add")]
         [HttpPost]

@@ -11,7 +11,7 @@ namespace RehberApi.Models.ORM.Entities
         public string SurName { get; set; }
         public string Company { get; set; }
 
-        public List<ContactInfo> Contacts{ get; set; }
+        public List<ContactInfo> Contacts { get; set; }
 
 
 
