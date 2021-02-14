@@ -21,9 +21,18 @@ namespace RehberApi.Controllers
 
 
         [Route("Person")]
-        public List<Person> GetPeople()
+        public List<PersonListVM> GetPeople()
         {
-            return _directoryContext.People.Where(q => q.IsDeleted == false).ToList();
+            List<PersonListVM> people = _directoryContext.People.Where(q => q.IsDeleted == false).Select(q =>  new PersonListVM()
+            {
+                id = q.ID,
+                name = q.Name,
+                surName = q.SurName,
+                company = q.Company
+            }).ToList();
+
+            return people;
+               
         }
 
         [Route("Person/Add")]
