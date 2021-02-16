@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace RehberApi.Models.VM
 {
-    public class PersonListVM
+    public class PersonDetailVM
     {
         public int id { get; set; }
         public string name { get; set; }
         public string surName { get; set; }
         public string company { get; set; }
 
-   
-
+        public List<ContactInfo> contacts { get; set; }
     }
 }

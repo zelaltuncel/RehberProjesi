@@ -20,7 +20,7 @@ namespace RehberApi.Controllers
         }
 
 
-        [Route("Person")]
+        [Route("People")]
         public List<PersonListVM> GetPeople()
         {
             List<PersonListVM> people = _directoryContext.People.Where(q => q.IsDeleted == false).Select(q =>  new PersonListVM()
@@ -43,7 +43,7 @@ namespace RehberApi.Controllers
 
             if (person != null)
             {
-                PersonListVM persondetail = _directoryContext.People.Where(q => q.IsDeleted == false).Select(x => new PersonListVM()
+                PersonDetailVM persondetail = _directoryContext.People.Where(q => q.IsDeleted == false).Select(x => new PersonDetailVM()
                 {
                     id = x.ID,
                     name = x.Name,
@@ -68,7 +68,7 @@ namespace RehberApi.Controllers
         [Route("Person/Add")]
         [HttpPost]
 
-        public IActionResult Add([FromForm] PersonAddVM personAdd)
+        public async Task<IActionResult> Add([FromForm] PersonAddVM personAdd)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace RehberApi.Controllers
                 person.Company = personAdd.company;
 
                 _directoryContext.People.Add(person);
-                _directoryContext.SaveChanges();
+                 _directoryContext.SaveChanges();
 
                 personAdd.id = person.ID;
 
