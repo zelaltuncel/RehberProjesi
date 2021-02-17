@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Confluent.Kafka;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +27,16 @@ namespace RaporApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var consumerConfig = new ConsumerConfig
+            {
+                GroupId = "gid-consumer",
+                BootstrapServers = "localhost:9092",
+                AutoOffsetReset = AutoOffsetReset.Earliest
+            };
+            Configuration.Bind("consumer", consumerConfig);
+
+            services.AddSingleton<ConsumerConfig>(consumerConfig);
+
             services.AddControllers();
             
             services.AddDbContext<ReportContext>();

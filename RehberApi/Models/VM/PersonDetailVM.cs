@@ -13,6 +13,6 @@ namespace RehberApi.Models.VM
         public string surName { get; set; }
         public string company { get; set; }
 
-        public List<ContactInfo> contacts { get; set; }
+        public List<ContactDetailVM> contacts { get; set; }
     }
 }

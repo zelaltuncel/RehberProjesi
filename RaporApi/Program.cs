@@ -16,21 +16,21 @@ namespace RaporApi
         {
             CreateHostBuilder(args).Build().Run();
 
-            var config = new ConsumerConfig
-            {
-                GroupId = "gid-consumers",
-                BootstrapServers = "localhost:9092"
-            };
-            using (var consumer = new ConsumerBuilder<Null, string>(config).Build())
-            {
-                consumer.Subscribe("temp-topic-to");
-                while (true)
-                {
-                    var cr = consumer.Consume();
-                    Console.WriteLine(cr.Message.Value);
+            //var config = new ConsumerConfig
+            //{
+            //    GroupId = "gid-consumers",
+            //    BootstrapServers = "localhost:9092"
+            //};
+            //using (var consumer = new ConsumerBuilder<Null, string>(config).Build())
+            //{
+            //    consumer.Subscribe("temp-topic-to");
+            //    while (true)
+            //    {
+            //        var cr = consumer.Consume();
+            //        Console.WriteLine(cr.Message.Value);
 
-                }
-            }
+            //    }
+            //}
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
