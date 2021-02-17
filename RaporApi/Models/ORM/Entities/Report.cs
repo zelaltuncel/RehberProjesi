@@ -9,7 +9,7 @@ namespace RaporApi.Models.ORM.Entities
     {
         public int ID { get; set; }
 
-        public DateTime AddDate = DateTime.Now;
+        public DateTime RequestDate { get; set; } = DateTime.Now;
 
         private bool _status = false;
         public bool ReportStatus
